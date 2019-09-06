@@ -12,5 +12,8 @@ def create_app(test_config=None):
         app.config.from_pyfile('config.py', silent=True)
     else:
         app.config.from_mapping(test_config)
+    @app.route('/sign_up')
+    def sign_up():
+        return render_template('sign_up.html')
 
     return app

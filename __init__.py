@@ -16,4 +16,7 @@ def create_app(test_config=None):
     def sign_up():
         return render_template('sign_up.html')
 
+    
+    
+    
     return app

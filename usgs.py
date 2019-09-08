@@ -2,7 +2,7 @@ import urllib.request
 from flask import Flask, jsonify
 import json
 
-def printResults():
+def printResults(magnitude):
 
     urlData = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson"
     webUrl = urllib.request.urlopen(urlData)
@@ -13,10 +13,10 @@ def printResults():
 
     theJSON=json.loads(data)
 
-#    magnitude = float (input("Enter Magniture: "))
+  #  magnitude = float (input("Enter Magniture: "))
     disaster = []
     for i in theJSON["features"]:
-        if i["properties"]["mag"] >= 5 :
+        if i["properties"]["mag"] >= magnitude:
             value = ("%2.1f" % i["properties"]["mag"], i["properties"]["place"])
             disaster.append(value) 
     # length = len(disaster)
@@ -27,8 +27,8 @@ def printResults():
     return disaster
 
 
-if __name__ == "__main__":
-      printResults()     
+# if __name__ == "__main__":
+#       printResults()     
 
     
 

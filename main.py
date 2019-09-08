@@ -1,6 +1,6 @@
 from usgs import printResults
 
-result = printResults()
+result = printResults(4)
 
 if __name__ == "__main__":
     length = len(result)
